@@ -4,7 +4,7 @@
 import numpy as np
 import pandas as pd
 import random
-from scipy.optimize import linprog # Imports the library that will enable us to solve the linear programming problem (ie the library that will enable us to implement the revised simplex solution)
+from scipy.optimize import linprog # Imports the library that will enable us to solve the linear programming problem (ie the library that will enable us to implement the simplex solution)
 import time                    # Required library to calculate Computational Time
 
 start_time = time.time()                 # Keeps the start time
@@ -63,7 +63,7 @@ def simplexsolver(facilities):
     result = linprog(coefs,
                   A_ub=lessorequal_coef, b_ub=lessorequal_rhs, 
                   A_eq=equal_coef, b_eq=equal_rhs, 
-                  method='revised simplex')  
+                  method='high')  
     return result 
 
 
